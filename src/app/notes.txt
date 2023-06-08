@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  title = 'registrationapp';
+
+  constructor(private temp:ToastrService){
+
+  }
+  ngOnInit(){
+
+    //this.temp.success("Success","User Master");
+    //this.temp.info("Info Success","User Master");
+    //this.temp.warning("Warning","User Master");
+    //this.temp.error("","User Master");
+    //Swal.fire("Oops something went wrong");
+      Swal.fire({
+        title: 'Are you sure',
+        text: 'You will not be able to recoever it',
+        icon: 'warning',
+        showCancelButton:true,
+        confirmButtonText:'Yes, delete it.',
+        cancelButtonText:'Keep It'
+    }).then((result)=>{
+      if(result.value){
+      Swal.fire(
+        'Deleted',
+        "Your file is deleted",
+        'success'
+      )
+      }else if(result.dismiss === Swal.DismissReason.cancel){
+        Swal.fire(
+          'Cancelled',
+          'File is safe',
+          'error'
+        )
+      }
+    })
+
+  }
+  
+}
+
+
+<button>Save</button> 
+<button class="btn btn-success mb-3">Submit</button>
+<button class="btn btn-primary">Submit</button>
+
+<i class="fa fa-edit"></i>
+<i class="fa fa-trash-o"></i>

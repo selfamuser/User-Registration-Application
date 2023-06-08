@@ -1,0 +1,12 @@
+.card-body{
+    background-color: beige;
+   
+}
+.card-header{
+    background-color:rgb(233, 184, 88);
+    color: white;
+}
+
+.card-header-list-color{
+    background-color: plum;
+}
